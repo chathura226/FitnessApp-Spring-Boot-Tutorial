@@ -5,3 +5,5 @@ Record is a special kind of class.They reduce boilerplate code by automatically 
 
 validation dipendency can be used to validate data
 @Valid annotation validate the object based on the rules defined
+
+we are using H2 database as database for the app
