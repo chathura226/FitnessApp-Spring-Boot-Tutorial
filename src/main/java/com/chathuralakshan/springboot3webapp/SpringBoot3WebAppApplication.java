@@ -2,6 +2,7 @@ package com.chathuralakshan.springboot3webapp;
 
 import com.chathuralakshan.springboot3webapp.run.Location;
 import com.chathuralakshan.springboot3webapp.run.Run;
+import com.chathuralakshan.springboot3webapp.run.RunRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -24,13 +25,14 @@ public class SpringBoot3WebAppApplication {
         log.info("Application started successfully");
     }
 
-    @Bean
-    CommandLineRunner commandLineRunner() {
-        return args -> {
-            Run run=new Run(1,"First run", LocalDateTime.now().minus(1, ChronoUnit.HOURS),LocalDateTime.now(),4.0, Location.OUTDOOR);
-            log.info("Run: "+run);
-        };
-    }
+//    @Bean
+//    CommandLineRunner commandLineRunner(RunRepository runRepository) {
+//        return args -> {
+//            Run run=new Run(1,"First run", LocalDateTime.now().minus(1, ChronoUnit.HOURS),LocalDateTime.now(),4.0, Location.OUTDOOR);
+//            log.info("Run: "+run);
+//            runRepository.createRun(run);
+//        };
+//    }
 
 
 }
