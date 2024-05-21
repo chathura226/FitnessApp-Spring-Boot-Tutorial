@@ -1,9 +1,18 @@
 package com.chathuralakshan.springboot3webapp;
 
+import com.chathuralakshan.springboot3webapp.run.Run;
+import com.chathuralakshan.springboot3webapp.run.RunRepository;
+import com.chathuralakshan.springboot3webapp.user.User;
+import com.chathuralakshan.springboot3webapp.user.UserRestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 @SpringBootApplication
 public class SpringBoot3WebAppApplication {
@@ -17,14 +26,16 @@ public class SpringBoot3WebAppApplication {
         log.info("Application started successfully");
     }
 
-//    @Bean
-//    CommandLineRunner commandLineRunner(RunRepository runRepository) {
-//        return args -> {
-//            Run run=new Run(1,"First run", LocalDateTime.now().minus(1, ChronoUnit.HOURS),LocalDateTime.now(),4.0, Location.OUTDOOR);
-//            log.info("Run: "+run);
-//            runRepository.createRun(run);
-//        };
-//    }
+    @Bean
+    CommandLineRunner commandLineRunner(UserRestClient userRestClient) {
+        return args -> {
+            List<User> users =userRestClient.findAll();
+            System.out.println(users);
+
+            User user =userRestClient.findById(1);
+            System.out.println(user);
+        };
+    }
 
 
 }
