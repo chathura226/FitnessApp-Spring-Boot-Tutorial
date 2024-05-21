@@ -1,17 +1,9 @@
 package com.chathuralakshan.springboot3webapp;
 
-import com.chathuralakshan.springboot3webapp.run.Location;
-import com.chathuralakshan.springboot3webapp.run.Run;
-import com.chathuralakshan.springboot3webapp.run.RunRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 
 @SpringBootApplication
 public class SpringBoot3WebAppApplication {

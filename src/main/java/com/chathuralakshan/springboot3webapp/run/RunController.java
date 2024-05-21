@@ -3,7 +3,6 @@ package com.chathuralakshan.springboot3webapp.run;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -40,19 +39,29 @@ public class RunController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     void create(@Valid  @RequestBody Run run){
-        runRepository.createRun(run);
+        runRepository.save(run);
     }
 
     //put
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     void updateRun(@Valid @RequestBody Run run,@PathVariable Integer id){
-        runRepository.updateRun(run,id);
+        runRepository.save(run);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void delete(@PathVariable Integer id){
-        runRepository.delete(id);
+        runRepository.delete(runRepository.findById(id).get());
+    }
+
+
+    @GetMapping("/location/{location}")
+    List<Run> findByLocation(@PathVariable String location){
+        List<Run> run = runRepository.findAllByLocation(location);
+        if(run.isEmpty()){
+            throw new RunNotFoundException();
+        }
+        return run;
     }
 }
