@@ -1,9 +1,23 @@
-the packages are structured by features. so that all classes needed for that feature is in the same package.
-Other way to structure is package by layers like controllers, repository, entity etc.
 
-Record is a special kind of class.They reduce boilerplate code by automatically generating boilerplate code such as constructors, accessors, equals(), hashCode(), and toString() methods.
+# Spring Boot Application (Learning project)
 
-validation dipendency can be used to validate data
-@Valid annotation validate the object based on the rules defined
+## Overview
+This repository contains a Spring Boot application that demonstrates the usage of REST APIs, REST clients, and connections to an in-memory database (H2) and a PostgreSQL database. The application showcases various Spring Boot dependencies including Spring Web and Spring JDBC. It also uses Docker Compose for container orchestration.
 
-we are using H2 database as database for the app
+## Features
+- RESTful API implementation
+- REST client usage
+- Connection to H2 database
+- Connection to PostgreSQL database
+- Docker Compose configuration for container orchestration
+- Demonstrates usage of Spring Web, Spring JDBC
+
+## Technologies Used
+- Spring Boot
+- Spring Web
+- Spring JDBC
+- H2 Database
+- PostgreSQL
+- Docker
+- Docker Compose
+
